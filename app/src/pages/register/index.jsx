@@ -20,7 +20,6 @@ const Register = () => {
     } catch (error) {
       alert(error.message);
     }
-    console.log(user)
   }
   return (
     <div className="h-screen bg-primary flex items-center justify-center">
