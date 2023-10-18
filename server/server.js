@@ -3,7 +3,7 @@ require("dotenv").config();
 const app = express();
 const dbConfig = require("./config/dbConfig");
 const port = process.env.PORT || 5000;
-
+const cors = require("cors");
 const usersRoute = require("./routes/usersRoute");
 const chatsRoute = require("./routes/chatsRoute");
 const messagesRoute = require("./routes/messagesRoute");
@@ -13,14 +13,17 @@ app.use(
   })
 );
 
+app.use(cors())
 const server = require("http").createServer(app);
 
 const io = require("socket.io")(server, {
   cors: {
-    origin: "http://localhost:5173",
-    // methods: ["GET", "POST"],
+    origin: "*",
+    methods: ["GET", "POST"],
   },
 });
+
+
 
 // check the connection of socket from client
 let onlineUsers = [];
