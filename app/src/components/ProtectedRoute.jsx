@@ -70,7 +70,7 @@ function ProtectedRoute({ children }) {
               className="h-8 w-8 rounded-full object-cover"
             />
           }
-          {!user?.profilePic && <i class="ri-shield-user-line text-primary"></i>}
+          {!user?.profilePic && <i className="ri-shield-user-line text-primary"></i>}
           <h1
             className="underline text-primary cursor-pointer"
             onClick={() => {
@@ -81,7 +81,7 @@ function ProtectedRoute({ children }) {
           </h1>
 
           <i
-            class="ri-logout-circle-r-line ml-5 text-xl cursor-pointer text-primary"
+            className="ri-logout-circle-r-line ml-5 text-xl cursor-pointer text-primary"
             onClick={() => {
               localStorage.removeItem("token");
               navigate("/login");

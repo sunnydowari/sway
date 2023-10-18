@@ -5,7 +5,7 @@ import UserSearch from "./components/UserSearch";
 import UsersList from "./components/UserList";
 import { io } from "socket.io-client";
 
-const socket = io('http://localhost:5173');
+const socket = io('https://sway-backend.onrender.com');
 function Home() {
   const [searchKey, setSearchKey] = React.useState("");
   const { selectedChat, user } = useSelector((state) => state.userReducer);
