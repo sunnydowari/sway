@@ -326,7 +326,11 @@ function ChatArea({ socket }) {
           className="bg-primary text-white py-1 px-5 rounded h-max"
           onClick={() => sendNewMessage("")}
         >
-          <i className="ri-send-plane-2-line text-white"></i>
+          <img
+            src="/send.png"
+            alt="Send"
+            className="w-5 h-5"
+          />
         </button>
       </div>
     </div>

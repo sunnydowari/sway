@@ -59,18 +59,24 @@ function ProtectedRoute({ children }) {
               navigate("/");
             }}
           >
-            SHEYCHAT
+            Sway
           </h1>
         </div>
         <div className="flex gap-2 text-md items-center bg-white p-2 rounded">
-          {user?.profilePic && 
+          {user?.profilePic && (
             <img
               src={user?.profilePic}
               alt="profile"
               className="h-8 w-8 rounded-full object-cover"
             />
-          }
-          {!user?.profilePic && <i className="ri-shield-user-line text-primary"></i>}
+          )}
+          {!user?.profilePic && (
+          <img
+            src="/profile.png" // Specify the path to your default profile image PNG file
+            alt="Profile"
+            className="h-8 w-8 rounded-full object-cover"
+          />
+        )}
           <h1
             className="underline text-primary cursor-pointer"
             onClick={() => {
@@ -80,13 +86,15 @@ function ProtectedRoute({ children }) {
             {user?.name}
           </h1>
 
-          <i
-            className="ri-logout-circle-r-line ml-5 text-xl cursor-pointer text-primary"
+          <img
+            src="/logout.png"
+            alt="Logout"
+            className="w-5 h-5 cursor-pointer"
             onClick={() => {
               localStorage.removeItem("token");
               navigate("/login");
             }}
-          ></i>
+          />
         </div>
       </div>
 

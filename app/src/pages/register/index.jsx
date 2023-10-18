@@ -43,7 +43,7 @@ function Register() {
         <div className="flex gap-2">
           <i className="ri-message-3-line text-2xl text-primary"></i>
           <h1 className="text-2xl uppercase font-semibold text-primary">
-            Sheychat register{" "}
+            Sway register{" "}
           </h1>
         </div>
         <hr />
