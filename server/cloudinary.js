@@ -1,9 +1,11 @@
 const cloudinary = require("cloudinary").v2;
 
-cloudinary.config({
-  cloud_name: "sathya195",
-  api_key: "559255822375866",
-  api_secret: "HNkW35fXt0duvQm0g_TPLk4IIvs",
+import {v2 as cloudinary} from 'cloudinary';
+          
+cloudinary.config({ 
+  cloud_name: 'sunnysway', 
+  api_key: '298112697966819', 
+  api_secret: '9Tgt6J0WCvQyNQZWcTYPHKjowPQ' 
 });
 
 module.exports = cloudinary;
