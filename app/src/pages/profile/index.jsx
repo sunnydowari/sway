@@ -58,6 +58,7 @@ function Profile() {
               src={image}
               alt="profile pic"
               className="w-32 h-32 rounded-full"
+              style={{ objectFit: "cover" }}
             />
           )}
 

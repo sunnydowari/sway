@@ -23,7 +23,7 @@ function Home() {
   }, [user]);
 
   return (
-    <div className="flex gap-5">
+    <div className="flex gap-2">
       {/* 1st part   user search , userslist/chatlist */}
       <div className="w-96">
         <UserSearch searchKey={searchKey} setSearchKey={setSearchKey} />

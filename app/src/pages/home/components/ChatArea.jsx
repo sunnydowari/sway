@@ -200,6 +200,7 @@ function ChatArea({ socket }) {
               src={receipentUser.profilePic}
               alt="profile pic"
               className="w-10 h-10 rounded-full"
+              style={{ objectFit: "cover" }}
             />
           )}
           {!receipentUser.profilePic && (

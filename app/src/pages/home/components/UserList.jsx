@@ -157,7 +157,7 @@ function UsersList({ searchKey, socket, onlineUsers }) {
   }, []);
 
   return (
-    <div className="flex flex-col gap-3 mt-5 lg:w-96 xl:w-96 md:w-60 sm:w-60">
+    <div className="flex flex-col gap-2 mt-5 lg:w-90 xl:w-90 md:w-60 sm:w-60">
       {getData().map((chatObjOrUserObj) => {
         let userObj = chatObjOrUserObj;
 
@@ -168,18 +168,19 @@ function UsersList({ searchKey, socket, onlineUsers }) {
         }
         return (
           <div
-            className={`shadow-sm border p-2 rounded-xl bg-white flex justify-between items-center cursor-pointer w-full
+            className={`shadow-sm border p-1 rounded-xl bg-white flex justify-between items-center cursor-pointer w-full
                 ${getIsSelctedChatOrNot(userObj) && "border-primary border-2"}
             `}
             key={userObj._id}
             onClick={() => openChat(userObj._id)}
           >
-            <div className="flex gap-5 items-center">
+            <div className="flex gap-2 items-center">
               {userObj.profilePic && (
                 <img
                   src={userObj.profilePic}
                   alt="profile pic"
                   className="w-10 h-10 rounded-full"
+                  style={{ objectFit: "cover" }}
                 />
               )}
               {!userObj.profilePic && (
