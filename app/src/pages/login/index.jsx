@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginUser } from "../../apicalls/users";
 import { HideLoader, ShowLoader } from "../../redux/loaderSlice";
+import "./login.css";
 
 function Login() {
   const dispatch = useDispatch();
@@ -39,13 +40,11 @@ function Login() {
   }, []);
 
   return (
-    <div className="h-screen bg-primary flex items-center justify-center">
-      <div className="bg-white shadow-md p-5 flex flex-col gap-5 w-96">
-        <div className="flex gap-2">
-          <i className="ri-message-3-line text-2xl text-primary"></i>
-          <h1 className="text-2xl uppercase font-semibold text-primary">
-            Sway Login{" "}
-          </h1>
+    <div className="login-container">
+      <div className="login-content">
+        <div className="login-header">
+          <i className="icon-message"></i>
+          <h1 className="login-title">Sway Login</h1>
         </div>
         <hr />
 
@@ -54,24 +53,26 @@ function Login() {
           value={user.email}
           onChange={(e) => setUser({ ...user, email: e.target.value })}
           placeholder="Enter your email"
+          className="login-input"
         />
         <input
           type="password"
           value={user.password}
           onChange={(e) => setUser({ ...user, password: e.target.value })}
           placeholder="Enter your password"
+          className="login-input"
         />
 
         <button
           className={
-            user.email && user.password ? "contained-btn" : "disabled-btn"
+            user.email && user.password ? "login-button" : "disabled-button"
           }
           onClick={login}
         >
           LOGIN
         </button>
 
-        <Link to="/register" className="underline">
+        <Link to="/register" className="login-link">
           Do not have an account? Register
         </Link>
       </div>

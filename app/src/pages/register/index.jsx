@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { RegisterUser } from "../../apicalls/users";
 import { HideLoader, ShowLoader } from "../../redux/loaderSlice";
-
+import "./register.css"
 function Register() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ function Register() {
       dispatch(HideLoader());
       toast.error(error.message);
     }
-  };
+  }
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
@@ -38,13 +38,11 @@ function Register() {
   }, []);
 
   return (
-    <div className="h-screen bg-primary flex items-center justify-center">
-      <div className="bg-white shadow-md p-5 flex flex-col gap-5 w-96">
-        <div className="flex gap-2">
-          <i className="ri-message-3-line text-2xl text-primary"></i>
-          <h1 className="text-2xl uppercase font-semibold text-primary">
-            Sway register{" "}
-          </h1>
+    <div className="register-container">
+      <div className="register-content">
+        <div className="register-header">
+          <i className="register-icon"></i>
+          <h1 className="register-title">Sway Register</h1>
         </div>
         <hr />
         <input
@@ -52,32 +50,31 @@ function Register() {
           value={user.name}
           onChange={(e) => setUser({ ...user, name: e.target.value })}
           placeholder="Enter your name"
+          className="register-input"
         />
         <input
           type="text"
           value={user.email}
           onChange={(e) => setUser({ ...user, email: e.target.value })}
           placeholder="Enter your email"
+          className="register-input"
         />
         <input
           type="password"
           value={user.password}
           onChange={(e) => setUser({ ...user, password: e.target.value })}
           placeholder="Enter your password"
+          className="register-input"
         />
-
         <button
           className={
-            user.name && user.email && user.password
-              ? "contained-btn"
-              : "disabled-btn"
+            user.name && user.email && user.password ? "register-button" : "disabled-button"
           }
           onClick={register}
         >
           Register
         </button>
-
-        <Link to="/login" className="underline">
+        <Link to="/login" className="register-link">
           Already have an account? Login
         </Link>
       </div>
