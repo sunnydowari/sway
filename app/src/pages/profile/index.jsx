@@ -5,17 +5,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { HideLoader, ShowLoader } from "../../redux/loaderSlice";
 import { SetUser } from "../../redux/userSlice";
 import { UpdateProfilePicture } from "../../apicalls/users";
+import "./profile.css"; 
 
 function Profile() {
   const { user } = useSelector((state) => state.userReducer);
   const [image = "", setImage] = React.useState("");
   const dispatch = useDispatch();
+
   const onFileSelect = async (e) => {
     const file = e.target.files[0];
     const reader = new FileReader(file);
     reader.readAsDataURL(file);
     reader.onloadend = async () => {
-      console.log(reader.result);
       setImage(reader.result);
     };
   };
@@ -45,37 +46,30 @@ function Profile() {
 
   return (
     user && (
-      <div className="flex items-center justify-center h-[80vh]">
-        <div className="text-xl font-semibold uppercase text-gray-500 flex gap-2 flex-col p-2 shadow-md border w-max border-gray-300 rounded">
-          <h1>{user.name}</h1>
-          <h1>{user.email}</h1>
-          <h1>
-            Created At:{" "}
-            {moment(user.createdAt).format("MMMM Do YYYY, h:mm:ss a")}
+      <div className="profile-container">
+        <div className="profile-details">
+          <h1 className="profile-name">{user.name}</h1>
+          <h1 className="profile-email">{user.email}</h1>
+          <h1 className="profile-created-at">
+            Created At: {moment(user.createdAt).format("MMMM Do YYYY, h:mm:ss a")}
           </h1>
-          {image && (
-            <img
-              src={image}
-              alt="profile pic"
-              className="w-32 h-32 rounded-full"
-              style={{ objectFit: "cover" }}
-            />
-          )}
+        </div>
 
-          <div className="flex gap-2">
-            <label htmlFor="file-input" className="cursor-pointer">
-              Update Profile Pic
-            </label>
-            <input
-              type="file"
-              onChange={onFileSelect}
-              className="file-input border-0"
-              id="file-input"
-            />
-            <button className="contained-btn" onClick={updateProfilePic}>
-              Update
-            </button>
-          </div>
+        {image && (
+          <img src={image} alt="profile pic" className="profile-image" />
+        )}
+
+        <div className="profile-actions">
+          <label htmlFor="file-input" className="profile-label">Update Profile Pic</label>
+          <input
+            type="file"
+            onChange={onFileSelect}
+            className="profile-file-input"
+            id="file-input"
+          />
+          <button className="profile-update-button" onClick={updateProfilePic}>
+            Update
+          </button>
         </div>
       </div>
     )
