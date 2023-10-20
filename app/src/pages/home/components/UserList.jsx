@@ -98,11 +98,11 @@ function UsersList({ searchKey, socket, onlineUsers }) {
       const lastMsgPerson =
         chat?.lastMessage?.sender === user._id ? "You : " : "";
       return (
-        <div className="flex justify-between w-72">
-          <h1 className="text-black-600 text-16">
+        <div className="user-card-message">
+          <h1 className="user-card-message-text">
             {lastMsgPerson} {chat?.lastMessage?.text}
           </h1>
-          <h1 className="text-black-500 text-sm">
+          <h1 className="user-card-message-last">
             {getDateInRegualarFormat(chat?.lastMessage?.createdAt)}
           </h1>
         </div>

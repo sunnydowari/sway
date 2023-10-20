@@ -48,21 +48,38 @@
   }
 
   .user-card-each{
-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-border: 1px solid #000; /* You can replace #000 with your desired border color */
-padding: 1rem;
-border-radius: 0.5rem;
-background-color: #777777;
-color: #ffffff; /* You can replace #000 with your desired text color */
-display: flex;
-justify-content: space-between;
-align-items: center;
-cursor: pointer;
-width: 100%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border: 1px solid #000; /* You can replace #000 with your desired border color */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #777777;
+    color: #ffffff; /* You can replace #000 with your desired text color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
   }
   .user-card-name{
     display: flex;
-    gap: 1;
+    gap: 1rem;
+    justify-content: space-between;
+    width: 72px;
+  }
+  .user-card-message{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .user-card-message-text{
+    color: #000;
+    size: 18px;
+  }
+  .user-card-message-last{
+    color: #000;
+  font-size: 12px; 
+  margin-left: auto;
+  padding-left: 50%;
   }
 
   .user-card-details{
@@ -70,6 +87,7 @@ width: 100%;
     flex-direction: column;
     gap: 2;
   }
+
 
   /* --------------------------------------------USER SEARCH CSS----------------------------------------- */
 
