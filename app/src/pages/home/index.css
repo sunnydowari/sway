@@ -239,15 +239,11 @@
   }
 
   .toggle-user-container{
-    /* Use absolute positioning for the button within the relative container */
-  top: 0%; /* Adjust the top position as needed */
-  left: 20px; /* Adjust the right position as needed */
+  top: 0%; 
   background-color: #777777;
-  color: #fff;
+  color: #bdbdbd;
   border: none;
-  padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  cursor: pointer;
-  z-index: 1; /* Ensure it's above other elements within the home-container */
-  transition: background-color 0.2s, color 0.2s;
+  cursor: pointer; /* Ensure it's above other elements within the home-container */
+  transition: background-color 1.9s, color 0.2s;
   }
