@@ -13,6 +13,7 @@ import moment from "moment";
 import { SetAllChats } from "../../../redux/userSlice";
 import store from "../../../redux/store";
 import EmojiPicker from "emoji-picker-react";
+import "./main.css";
 
 function ChatArea({ socket }) {
   const [showEmojiPicker, setShowEmojiPicker] = React.useState(false);
@@ -191,7 +192,7 @@ function ChatArea({ socket }) {
   };
 
   return (
-    <div className="bg-white h-[82vh] border rounded-2xl w-full flex flex-col justify-between p-5">
+    <div className="chat-area">
       {/* 1st part receipent user */}
       <div>
         <div className="flex gap-5 items-center mb-2">
@@ -205,12 +206,12 @@ function ChatArea({ socket }) {
           )}
           {!receipentUser.profilePic && (
             <div className="bg-gray-500  rounded-full h-10 w-10 flex items-center justify-center">
-              <h1 className="uppercase text-xl font-semibold text-white">
+              <h1 className="uppercase text-xl font-bold  text-white">
                 {receipentUser.name[0]}
               </h1>
             </div>
           )}
-          <h1 className="uppercase">{receipentUser.name}</h1>
+          <h1 className="lowercase">{receipentUser.name}</h1>
         </div>
         <hr />
       </div>
@@ -241,7 +242,8 @@ function ChatArea({ socket }) {
                       className="w-24 h-24 rounded-xl"
                     />
                   )}
-                  <h1 className="text-gray-500 text-sm">
+                  {/* last sent message date */}
+                  <h1 className="chatarea-timestamps">
                     {getDateInRegualarFormat(message.createdAt)}
                   </h1>
                 </div>
@@ -290,23 +292,29 @@ function ChatArea({ socket }) {
           </div>
         )}
 
-        <div className="flex gap-2 text-xl">
+        <div className="file-picker">
           <label for="file">
-            <i className="ri-link cursor-pointer text-xl" typeof="file"></i>
+            <img className="file-picker-icon" 
+            src="./files.png"
+            typeof="file"/>
             <input
               type="file"
               id="file"
               style={{
                 display: "none",
+                width: 200,
+                height: 200
               }}
               accept="image/gif,image/jpeg,image/jpg,image/png"
               onChange={onUploadImageClick}
             />
           </label>
-          <i
-            className="ri-emotion-line cursor-pointer text-xl"
+          <img
+            src="./emoji.png"
+            alt="Emoji Icon"
+            className="emoji-picker"
             onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-          ></i>
+          />
         </div>
 
         <input
@@ -324,14 +332,10 @@ function ChatArea({ socket }) {
           }}
         />
         <button
-          className="bg-primary text-white py-1 px-5 rounded h-max"
+          className="send-message-button"
           onClick={() => sendNewMessage("")}
         >
-          <img
-            src="/send.png"
-            alt="Send"
-            className="w-5 h-5"
-          />
+          <img src="/send.png" alt="Send" className="w-7 h-7" />
         </button>
       </div>
     </div>

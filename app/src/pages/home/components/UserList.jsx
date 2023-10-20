@@ -9,6 +9,7 @@ import { HideLoader, ShowLoader } from "../../../redux/loaderSlice";
 import { SetAllChats, SetSelectedChat } from "../../../redux/userSlice";
 import moment from "moment";
 import store from "../../../redux/store";
+import "./main.css"
 
 function UsersList({ searchKey, socket, onlineUsers }) {
   const { allUsers, allChats, user, selectedChat } = useSelector(
@@ -98,10 +99,10 @@ function UsersList({ searchKey, socket, onlineUsers }) {
         chat?.lastMessage?.sender === user._id ? "You : " : "";
       return (
         <div className="flex justify-between w-72">
-          <h1 className="text-gray-600 text-sm">
+          <h1 className="text-black-600 text-16">
             {lastMsgPerson} {chat?.lastMessage?.text}
           </h1>
-          <h1 className="text-gray-500 text-sm">
+          <h1 className="text-black-500 text-sm">
             {getDateInRegualarFormat(chat?.lastMessage?.createdAt)}
           </h1>
         </div>
@@ -157,7 +158,7 @@ function UsersList({ searchKey, socket, onlineUsers }) {
   }, []);
 
   return (
-    <div className="flex flex-col gap-2 mt-5 lg:w-90 xl:w-90 md:w-60 sm:w-60">
+    <div className="user-card">
       {getData().map((chatObjOrUserObj) => {
         let userObj = chatObjOrUserObj;
 
@@ -168,13 +169,13 @@ function UsersList({ searchKey, socket, onlineUsers }) {
         }
         return (
           <div
-            className={`shadow-sm border p-1 rounded-xl bg-white flex justify-between items-center cursor-pointer w-full
+            className={`user-card-each 
                 ${getIsSelctedChatOrNot(userObj) && "border-primary border-2"}
             `}
             key={userObj._id}
             onClick={() => openChat(userObj._id)}
           >
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-5 items-center">
               {userObj.profilePic && (
                 <img
                   src={userObj.profilePic}
@@ -190,9 +191,9 @@ function UsersList({ searchKey, socket, onlineUsers }) {
                   </h1>
                 </div>
               )}
-              <div className="flex flex-col gap-1">
-                <div className="flex gap-1">
-                  <div className="flex gap-1 items-center">
+              <div className="user-card-details">  
+                <div className="user-card-">
+                  <div className="user-card-name">
                     <h1>{userObj.name}</h1>
                     {onlineUsers.includes(userObj._id) && (
                       <div>
@@ -210,7 +211,7 @@ function UsersList({ searchKey, socket, onlineUsers }) {
                 chat.members.map((mem) => mem._id).includes(userObj._id)
               ) && (
                 <button className="border-primary border text-primary bg-white p-1 rounded">
-                  Create Chat
+                  connect
                 </button>
               )}
             </div>

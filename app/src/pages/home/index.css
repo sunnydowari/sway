@@ -1,0 +1,253 @@
+.home-container {
+  position: relative; /* Add relative positioning to the home container */
+  display: flex;
+  gap: 2rem;
+  background-color: #777777;;
+  }
+  
+  /* User container */
+  .user-container {
+    width: 50%;
+    background-color: #777777;;
+  }
+  
+  /* Chat container */
+  .chat-container {
+    width: 100%;
+    color: white;
+  }
+  
+  /* Empty chat container */
+  .empty-chat-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #929292;
+    height: 80vh;
+    width: 100%;
+  }
+  
+  .empty-chat-image {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .empty-chat-text {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #515151;
+  }
+  
+  /* User Search */
+  .user-search {
+    background-color: #777777;;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    background-color: #777777;;;
+  }
+  
+  .search-icon {
+    margin-right: 0.5rem;
+    color: #333;
+  }
+  
+  /* User List */
+  .user-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background-color: #777777;
+    cursor: pointer;
+    transition: border 0.2s;
+  }
+  
+  .user-card:hover {
+    border-color: #007BFF;
+  }
+  
+  .selected {
+    border: 2px solid #007BFF;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-avatar {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .user-avatar-placeholder {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: #777;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .user-initial {
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  
+  .user-details {
+    margin-left: 1rem;
+  }
+  
+  .user-name {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-status.online {
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: #28A745;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+  }
+  
+  .create-chat-button {
+    border: 1px solid #007BFF;
+    color: #007BFF;
+    padding: 0.25rem 1rem;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .create-chat-button:hover {
+    background-color: #007BFF;
+    color: #fff;
+  }
+  
+  /* Chat Area */
+  .chat-area {
+    background-color: #3e3e3e;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Chat messages */
+  .chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 55vh;
+    overflow-y: scroll;
+    padding: 1rem;
+  }
+  
+  .chat-message {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  
+  .sender-message {
+    background-color: #007BFF;
+    color: #fff;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+  
+  .receiver-message {
+    background-color: #f0f0f0;
+  }
+  
+  .message-text {
+    font-size: 1rem;
+  }
+  
+  .message-image {
+    max-width: 512px;
+    height: 512px;
+    border-radius: 0.5rem;
+  }
+  
+  .message-timestamp {
+    font-size: 0.875rem;
+    color: #000000;
+  }
+  
+  /* Chat input */
+  .chat-input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+  }
+  
+  .message-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .emoji-button {
+    margin-right: 0.5rem;
+    color: #ffffff;
+  }
+  
+  .send-button {
+    border: 1px solid #007BFF;
+    
+    padding: 0.25rem 1rem;
+    border-radius: 0.5rem;
+    
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .send-button:hover {
+    background-color: #007BFF;
+    color: #fff;
+  }
+
+  .toggle-user-container{
+    /* Use absolute positioning for the button within the relative container */
+  top: 0%; /* Adjust the top position as needed */
+  left: 20px; /* Adjust the right position as needed */
+  background-color: #777777;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  z-index: 1; /* Ensure it's above other elements within the home-container */
+  transition: background-color 0.2s, color 0.2s;
+  }

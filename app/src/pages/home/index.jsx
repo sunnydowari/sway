@@ -1,15 +1,19 @@
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import ChatArea from "./components/ChatArea";
 import UserSearch from "./components/UserSearch";
 import UsersList from "./components/UserList";
 import { io } from "socket.io-client";
+import "./index.css";
 
 const socket = io('https://sway-backend.onrender.com');
+
 function Home() {
-  const [searchKey, setSearchKey] = React.useState("");
+  const [searchKey, setSearchKey] = useState("");
   const { selectedChat, user } = useSelector((state) => state.userReducer);
-  const [onlineUsers, setOnlineUsers] = React.useState([]);
+  const [onlineUsers, setOnlineUsers] = useState([]);
+  const [isUserContainerVisible, setIsUserContainerVisible] = useState(true);
+
   useEffect(() => {
     // join the room
     if (user) {
@@ -22,35 +26,32 @@ function Home() {
     }
   }, [user]);
 
-  return (
-    <div className="flex gap-2">
-      {/* 1st part   user search , userslist/chatlist */}
-      <div className="w-96">
-        <UserSearch searchKey={searchKey} setSearchKey={setSearchKey} />
-        <UsersList
-          searchKey={searchKey}
-          socket={socket}
-          onlineUsers={onlineUsers}
-        />
-      </div>
+  const toggleUserContainerVisibility = () => {
+    setIsUserContainerVisible(!isUserContainerVisible);
+  };
 
-      {/* 2nd part   chatbox */}
+  return (
+    <div className="home-container">
+      <button className="toggle-user-container" onClick={toggleUserContainerVisibility}>
+       |||
+      </button>
+
+      {isUserContainerVisible && (
+        <div className="user-container">
+          <UserSearch searchKey={searchKey} setSearchKey={setSearchKey} />
+          <UsersList searchKey={searchKey} socket={socket} onlineUsers={onlineUsers} />
+        </div>
+      )}
+
       {selectedChat && (
-        <div className="w-full">
+        <div className="chat-container">
           <ChatArea socket={socket} />
         </div>
       )}
 
       {!selectedChat && (
-        <div className="w-full h-[80vh]  items-center justify-center flex bg-white flex-col">
-          <img
-            src="https://www.pngmart.com/files/16/Speech-Chat-Icon-Transparent-PNG.png"
-            alt=""
-            className="w-96 h-96"
-          />
-          <h1 className="text-2xl font-semibold text-gray-500">
-            Select a user to chat
-          </h1>
+        <div className="empty-chat-container">
+          <h1 className="empty-chat-text">Select a user to chat</h1>
         </div>
       )}
     </div>
