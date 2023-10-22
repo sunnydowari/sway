@@ -1,3 +1,7 @@
+.root{
+  background-color: #777777 ;
+}
+
 .home-container {
   position: relative; /* Add relative positioning to the home container */
   display: flex;
@@ -7,14 +11,37 @@
   
   /* User container */
   .user-container {
-    width: 50%;
-    background-color: #777777;;
+  width: 100%;
+  position: relative;
+  background-color: #4b4b4b;
+  transition: width 0.3s ease-in-out;
+  overflow-x: hidden;
+  z-index: 2;
   }
   
   /* Chat container */
   .chat-container {
     width: 100%;
     color: white;
+    position: relative;
+    z-index: 1; 
+  }
+
+  .userlist-interface {
+    position: absolute;
+    margin-top: auto;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: #777777;
+    z-index: 2;
+    transition: left 0.3s ease-in-out;
+    overflow-x: hidden;
+  }
+
+  .userlist-interface.open {
+    left: 30px;
+    height: 100%;
   }
   
   /* Empty chat container */
@@ -216,6 +243,7 @@
     padding: 0.25rem 0.5rem;
     border-radius: 0.5rem;
     font-size: 1rem;
+    
   }
   
   .emoji-button {
@@ -225,10 +253,8 @@
   
   .send-button {
     border: 1px solid #007BFF;
-    
     padding: 0.25rem 1rem;
-    border-radius: 0.5rem;
-    
+    border-radius: 0.5rem;   
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
   }
@@ -239,11 +265,14 @@
   }
 
   .toggle-user-container{
-  top: 0%; 
-  background-color: #777777;
-  color: #bdbdbd;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #4d8c97;
+  justify-content: center;
+  color: #000000;
   border: none;
   border-radius: 0.5rem;
-  cursor: pointer; /* Ensure it's above other elements within the home-container */
+  cursor: pointer;
   transition: background-color 1.9s, color 0.2s;
+  z-index: 3;
   }

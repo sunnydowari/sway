@@ -31,18 +31,20 @@ function Home() {
   };
 
   return (
+    <>
+    
     <div className="home-container">
-      <button className="toggle-user-container" onClick={toggleUserContainerVisibility}>
-       |||
-      </button>
-
+    <div className={`userlist-interface ${isUserContainerVisible ? 'open' : ''}`}>
       {isUserContainerVisible && (
         <div className="user-container">
           <UserSearch searchKey={searchKey} setSearchKey={setSearchKey} />
           <UsersList searchKey={searchKey} socket={socket} onlineUsers={onlineUsers} />
         </div>
       )}
-
+    </div>
+    <button className="toggle-user-container" onClick={toggleUserContainerVisibility}>
+         |||
+      </button>
       {selectedChat && (
         <div className="chat-container">
           <ChatArea socket={socket} />
@@ -51,10 +53,11 @@ function Home() {
 
       {!selectedChat && (
         <div className="empty-chat-container">
-          <h1 className="empty-chat-text">Select a user to chat</h1>
+          <h1 className="empty-chat-text">Select a user or connect to chat</h1>
         </div>
       )}
     </div>
+</>
   );
 }
 
