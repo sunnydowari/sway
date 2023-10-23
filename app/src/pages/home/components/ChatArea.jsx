@@ -3,7 +3,7 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unknown-property */
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetMessages, SendMessage } from "../../../apicalls/messages";
 import { ClearChatMessages } from "../../../apicalls/chats";
@@ -94,7 +94,7 @@ function ChatArea({ socket }) {
     }
   };
 
-  const getDateInRegualarFormat = (date) => {
+  const getDateInRegularFormat = (date) => {
     let result = "";
 
     // if date is today return time in hh:mm format
@@ -111,6 +111,16 @@ function ChatArea({ socket }) {
     }
 
     return result;
+  };
+
+  const inputRef = useRef(null);
+
+  const handleInputKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault(); // Prevents a new line from being added
+      sendNewMessage("");
+      inputRef.current.focus(); // Refocus on the input field
+    }
   };
 
   useEffect(() => {
@@ -140,7 +150,7 @@ function ChatArea({ socket }) {
       const tempSelectedChat = store.getState().userReducer.selectedChat;
 
       if (data.chat === tempSelectedChat._id) {
-        // update unreadmessages count in selected chat
+        // update unread messages count in selected chat
         const updatedChats = tempAllChats.map((chat) => {
           if (chat._id === data.chat) {
             return {
@@ -164,10 +174,10 @@ function ChatArea({ socket }) {
       }
     });
 
-    // receipent typing
+    // recipient typing
     socket.on("started-typing", (data) => {
-      const selctedChat = store.getState().userReducer.selectedChat;
-      if (data.chat === selctedChat._id && data.sender !== user._id) {
+      const selectedChat = store.getState().userReducer.selectedChat;
+      if (data.chat === selectedChat._id && data.sender !== user._id) {
         setIsReceipentTyping(true);
       }
       setTimeout(() => {
@@ -177,7 +187,7 @@ function ChatArea({ socket }) {
   }, [selectedChat]);
 
   useEffect(() => {
-    // always scroll to bottom for messages id
+    // always scroll to the bottom for messages id
     const messagesContainer = document.getElementById("messages");
     messagesContainer.scrollTop = messagesContainer.scrollHeight;
   }, [messages, isReceipentTyping]);
@@ -193,7 +203,7 @@ function ChatArea({ socket }) {
 
   return (
     <div className="chat-area">
-      {/* 1st part receipent user */}
+      {/* 1st part recipient user */}
       <div>
         <div className="flex gap-5 items-center mb-2">
           {receipentUser.profilePic && (
@@ -240,12 +250,11 @@ function ChatArea({ socket }) {
                       src={message.image}
                       alt="message image"
                       className="message-image"
-                      
                     />
                   )}
                   {/* last sent message date */}
                   <h1 className="chatarea-timestamps">
-                    {getDateInRegualarFormat(message.createdAt)}
+                    {getDateInRegularFormat(message.createdAt)}
                   </h1>
                 </div>
                 {isCurrentUserIsSender && message.read && (
@@ -280,7 +289,6 @@ function ChatArea({ socket }) {
       </div>
 
       {/* 3rd part chat input */}
-
       <div className="h-18 rounded-xl border-gray-300 shadow border flex justify-between p-2 items-center relative">
         {showEmojiPicker && (
           <div className="emoji-picker">
@@ -288,6 +296,8 @@ function ChatArea({ socket }) {
               height={350}
               onEmojiClick={(e) => {
                 setNewMessage(newMessage + e.emoji);
+                sendNewMessage("");
+                setShowEmojiPicker(false);
               }}
             />
           </div>
@@ -295,16 +305,18 @@ function ChatArea({ socket }) {
 
         <div className="file-picker">
           <label for="file">
-            <img className="file-picker-icon" 
-            src="./files.png"
-            typeof="file"/>
+            <img
+              className="file-picker-icon"
+              src="./files.png"
+              typeof="file"
+            />
             <input
               type="file"
               id="file"
               style={{
                 display: "none",
                 width: 200,
-                height: 350
+                height: 350,
               }}
               accept="image/gif,image/jpeg,image/jpg,image/png"
               onChange={onUploadImageClick}
@@ -331,10 +343,15 @@ function ChatArea({ socket }) {
               sender: user._id,
             });
           }}
+          onKeyDown={handleInputKeyDown} 
+          ref={inputRef}
         />
         <button
           className="send-message-button"
-          onClick={() => sendNewMessage("")}
+          onClick={() => {
+            sendNewMessage("");
+            inputRef.current.focus();
+          }}
         >
           <img src="/send.png" alt="Send" className="w-7 h-7" />
         </button>
