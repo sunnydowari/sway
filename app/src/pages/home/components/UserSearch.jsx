@@ -6,7 +6,7 @@ import "./main.css"
 function UserSearch({searchKey , setSearchKey}) {
   
   return (
-    <div className="search-bar">
+    <div className="search-bar-area">
       <input
         type="text"
         placeholder="Search users / chats"

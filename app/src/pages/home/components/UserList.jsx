@@ -175,7 +175,7 @@ function UsersList({ searchKey, socket, onlineUsers }) {
             key={userObj._id}
             onClick={() => openChat(userObj._id)}
           >
-            <div className="flex gap-5 items-center">
+            <div className="flex gap-3 items-center">
               {userObj.profilePic && (
                 <img
                   src={userObj.profilePic}
@@ -185,7 +185,7 @@ function UsersList({ searchKey, socket, onlineUsers }) {
                 />
               )}
               {!userObj.profilePic && (
-                <div className="bg-gray-400 rounded-full h-12 w-12 flex items-center justify-center relative">
+                <div className="bg-gray-600 rounded-full h-12 w-12 flex items-center justify-center relative">
                   <h1 className="uppercase text-xl font-semibold text-white">
                     {userObj.name[0]}
                   </h1>
@@ -194,7 +194,7 @@ function UsersList({ searchKey, socket, onlineUsers }) {
               <div className="user-card-details">  
                 <div className="user-card-">
                   <div className="user-card-name">
-                    <h1>{userObj.name}</h1>
+                    <h1 className="text-white">{userObj.name}</h1>
                     {onlineUsers.includes(userObj._id) && (
                       <div>
                         <div className="bg-green-700 h-3 w-3 rounded-full"></div>

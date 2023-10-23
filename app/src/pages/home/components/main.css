@@ -1,7 +1,7 @@
 /*-----------------------------------------------chat-area.css----------------------------------------*/
 
 .chat-area {
-  background-color: #8b8b8b;
+  background-color: #1e2a2a;
   height: 82vh;
   border: 2px solid;
   border-radius: 20px;
@@ -41,6 +41,7 @@
     margin-top: 1.25rem;
     width: 90%;
     max-width: 100%;
+    background-color: #1e2a2a;
   }
     
   .user-card {
@@ -53,54 +54,57 @@
 
   .user-card-each{
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    border: 1px solid #000; /* You can replace #000 with your desired border color */
-    padding: 1rem;
+    border: 1px solid #2d3b2d;
+    padding: 0.5rem;
     border-radius: 0.5rem;
-    background-color: #777777;
-    color: #ffffff; /* You can replace #000 with your desired text color */
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
     width: 100%;
+    color: white;
   }
   .user-card-name{
     display: flex;
     gap: 1rem;
-    justify-content: space-between;
     width: 72px;
   }
   .user-card-message{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     width: 100%;
   }
   .user-card-message-text{
-    color: #000;
     size: 18px;
+    padding-right: 30px;
+    color: white;
   }
   .user-card-message-last{
-    color: #000;
-  font-size: 12px; 
-  margin-left: auto;
-  padding-left: 50%;
+    align-items: right;
+    color: #a7a7a7;
+    font-size: 12px; 
+    margin-left: auto;
+    padding-left: 15px;
+    padding-top: 10px;
   }
 
   .user-card-details{
     display: flex;
-    flex-direction: column;
-    gap: 2;
+    flex-direction: row;
   }
 
 
   /* --------------------------------------------USER SEARCH CSS----------------------------------------- */
 
-  .search-bar{
-    border-radius: 1rem;
-    background-color: #393939;;
-    width: 100%;
-    border: 1px solid #ccc;
-    color: #000;
-    height: 3.5rem;
+  .search-bar-area{
+    color: #ffffff;
+    background-color: #1e2a2a;
 }
 
+.search-bar{
+  border-radius: 1rem;
+  background-color: #1e2a2a;
+  width: 100%;
+  height: 3.5rem;
+    
+}

@@ -1,15 +1,11 @@
-.root{
-  background-color: #777777 ;
-}
+
 
 .home-container {
   position: relative; /* Add relative positioning to the home container */
   display: flex;
   gap: 2rem;
-  background-color: #777777;;
   }
-  
-  /* User container */
+
   .user-container {
   width: 100%;
   position: relative;
@@ -22,7 +18,7 @@
   /* Chat container */
   .chat-container {
     width: 100%;
-    color: white;
+    color: #588383;
     position: relative;
     z-index: 1; 
   }
@@ -33,7 +29,7 @@
     top: 0;
     bottom: 0;
     height: 100%;
-    background-color: #777777;
+    background-color: #1e2a2a;
     z-index: 2;
     transition: left 0.3s ease-in-out;
     overflow-x: hidden;
@@ -50,7 +46,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #929292;
+    background-color: 1e2a2a;
     height: 80vh;
     width: 100%;
   }
@@ -63,17 +59,16 @@
   .empty-chat-text {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #515151;
+    color: #ffffff;
   }
   
   /* User Search */
   .user-search {
-    background-color: #777777;;
-    border: 1px solid #ccc;
     border-radius: 0.5rem;
     padding: 0.5rem 1rem;
     display: flex;
     align-items: center;
+    color: white;
   }
   
   .search-input {
@@ -81,9 +76,8 @@
     border: none;
     outline: none;
     padding: 0.25rem 0.5rem;
-    border-radius: 0.5rem;
     font-size: 1rem;
-    background-color: #777777;;;
+    color: white;
   }
   
   .search-icon {
@@ -96,26 +90,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    background-color: #777777;
+    padding: 1rem;    
+    background-color: #1e2a2a;
     cursor: pointer;
     transition: border 0.2s;
+    color: white;
   }
   
   .user-card:hover {
-    border-color: #007BFF;
+    border-color: #ffffff;
   }
   
   .selected {
-    border: 2px solid #007BFF;
+    border: 2px solid #ffffff;
   }
   
-  .user-info {
-    display: flex;
-    align-items: center;
-  }
+  
   
   .user-avatar {
     width: 4rem;
@@ -128,7 +118,7 @@
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
-    background-color: #777;
+    background-color: #f7efef;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -138,7 +128,7 @@
     text-transform: uppercase;
     font-size: 1.6rem;
     font-weight: 600;
-    color: #fff;
+    color: #ffffff;
   }
   
   .user-details {
@@ -163,7 +153,7 @@
     color: #007BFF;
     padding: 0.25rem 1rem;
     border-radius: 0.5rem;
-    background-color: #fff;
+    background-color: #6e6d6d;
     cursor: pointer;
     transition: background-color 0.2s, color 0.2s;
   }
@@ -175,8 +165,7 @@
   
   /* Chat Area */
   .chat-area {
-    background-color: #3e3e3e;
-    border: 1px solid #ccc;
+    background-color: #1e2a2a;
     border-radius: 0.5rem;
     padding: 1rem;
     display: flex;
@@ -224,14 +213,13 @@
   
   .message-timestamp {
     font-size: 0.875rem;
-    color: #000000;
+    color: #ffffff;
   }
   
   /* Chat input */
   .chat-input {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
     border-radius: 0.5rem;
     padding: 0.5rem;
   }
@@ -267,7 +255,7 @@
   .toggle-user-container{
   padding-left: 10px;
   padding-right: 10px;
-  background-color: #4d8c97;
+  background-color: #1e2a2a;
   justify-content: center;
   color: #000000;
   border: none;
