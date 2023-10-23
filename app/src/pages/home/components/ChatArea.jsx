@@ -239,7 +239,8 @@ function ChatArea({ socket }) {
                     <img
                       src={message.image}
                       alt="message image"
-                      className="w-24 h-24 rounded-xl"
+                      className="message-image"
+                      
                     />
                   )}
                   {/* last sent message date */}
