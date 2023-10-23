@@ -18,13 +18,13 @@
   .profile-name {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #333;
+    color: #ffffff;
   }
   
   /* Profile Email */
   .profile-email {
     font-size: 1rem;
-    color: #666;
+    color: #ffffff;
   }
   
   /* Profile Created At */
@@ -53,7 +53,7 @@
   /* Profile Label */
   .profile-label {
     font-size: 1rem;
-    color: #007BFF;
+    color: #ffffff;
     cursor: pointer;
   }
   
@@ -64,7 +64,7 @@
   
   /* Profile Update Button */
   .profile-update-button {
-    background-color: #007BFF;
+    background-color: #588383;
     color: #fff;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
@@ -74,7 +74,7 @@
   
   /* Profile Update Button Hover */
   .profile-update-button:hover {
-    background-color: #0056b3;
+    background-color: #579497;
     border-radius: 0.5rem;
   }
   

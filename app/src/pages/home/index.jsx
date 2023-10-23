@@ -43,7 +43,9 @@ function Home() {
       )}
     </div>
     <button className="toggle-user-container" onClick={toggleUserContainerVisibility}>
-         |||
+    <img className="file-picker-icon" 
+            src="./toggle.png"
+            />
       </button>
       {selectedChat && (
         <div className="chat-container">

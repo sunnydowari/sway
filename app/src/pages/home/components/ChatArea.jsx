@@ -228,7 +228,7 @@ function ChatArea({ socket }) {
                     <h1
                       className={`${
                         isCurrentUserIsSender
-                          ? "bg-primary text-white rounded-bl-none"
+                          ? "bg-secondary text-white rounded-bl-none"
                           : "bg-gray-300 text-primary rounded-tr-none"
                       } p-2 rounded-xl`}
                     >
@@ -282,7 +282,7 @@ function ChatArea({ socket }) {
 
       <div className="h-18 rounded-xl border-gray-300 shadow border flex justify-between p-2 items-center relative">
         {showEmojiPicker && (
-          <div className="absolute -top-96 left-0">
+          <div className="emoji-picker">
             <EmojiPicker
               height={350}
               onEmojiClick={(e) => {
@@ -303,7 +303,7 @@ function ChatArea({ socket }) {
               style={{
                 display: "none",
                 width: 200,
-                height: 200
+                height: 350
               }}
               accept="image/gif,image/jpeg,image/jpg,image/png"
               onChange={onUploadImageClick}

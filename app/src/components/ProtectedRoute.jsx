@@ -62,7 +62,7 @@ function ProtectedRoute({ children }) {
             Sway
           </h1>
         </div>
-        <div className="flex gap-2 text-md items-center bg-white p-2 rounded">
+        <div className="flex gap-2 text-md items-center bg-secondary p-2 rounded">
           {user?.profilePic && (
             <img
               src={user?.profilePic}
@@ -78,7 +78,7 @@ function ProtectedRoute({ children }) {
           />
         )}
           <h1
-            className="underline text-primary cursor-pointer"
+            className="underline text-white cursor-pointer"
             onClick={() => {
               navigate("/profile");
             }}
