@@ -296,7 +296,6 @@ function ChatArea({ socket }) {
               height={350}
               onEmojiClick={(e) => {
                 setNewMessage(newMessage + e.emoji);
-                sendNewMessage("");
                 setShowEmojiPicker(false);
               }}
             />
